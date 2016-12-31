@@ -111,9 +111,9 @@ def pricegraph():
 
 
 if __name__ == '__main__':
-    port=int(os.environ.get("PORT", 5000)) # run locally
-    app.run(port=port, host='0.0.0.0', debug=True) # run locally
-    # app.run(port=33507) # run on Heroku
+    # port=int(os.environ.get("PORT", 5000)) # run locally
+    # app.run(port=port, host='0.0.0.0', debug=True) # run locally
+    app.run(port=33507) # run on Heroku
     # app.run(host="0.0.0.0", debug=True,port=port)
     # app.run(host='0.0.0.0')
   # port=int(os.environ.get("PORT", 5000))
