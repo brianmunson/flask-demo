@@ -41,3 +41,4 @@ Thumbs.db
 
 API_Key
 __pycache__
+.env

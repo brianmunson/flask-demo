@@ -5,6 +5,7 @@ gunicorn==19.1.0
 Jinja2==2.8
 oauth==1.0.1
 oauthlib==2.0.1
-pandas==0.19.2+0.g825876c.dirty
+pandas==0.19.2
+python-dotenv==0.6.1
 requests>=2.12.4
 simplejson==3.8.0

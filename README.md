@@ -1,3 +1,30 @@
+# Implementation of "Flask on Heroku" DI project.
+
+The project asks the user for stock ticker input and a selection of price types
+and supplies a graph of that stock and those price types for the past two years.
+
+If an invalid ticker is given the user is re-prompted for a new one and given
+a basic error message.
+
+## index.html
+
+Page for entering stock ticker together with four checkboxes for price types, one
+each for open, close, and adjusted open, adjusted close.
+
+## pricegraph.html
+
+Page for rendering the plot specified by the user.
+
+## app.py
+
+The app takes the stock ticker and requests the past two years of data from the
+QUANDL Wiki data set using a hidden QUANDL API key. The data is then processed 
+into a dataframe by pandas, which is then read into a graph by Bokeh and the 
+result is fed to pricegraph.html for rendering. The price type inputs specified
+by the user select an appropriate number of graphs from the data.
+
+### See below for original README.md:
+
 # Flask on Heroku
 
 This project is intended to help you tie together some important concepts and

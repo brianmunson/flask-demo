@@ -6,18 +6,23 @@ import datetime
 from bokeh.layouts import gridplot
 from bokeh.plotting import figure, show, output_file
 from bokeh.embed import components
+from dotenv import find_dotenv, load_dotenv
 
-###### for loading secret API key
+# getting QUANDL credentials from environmental variables
+load_dotenv(find_dotenv())
+quandl_key = os.environ.get("QUANDL")
+
+###### for loading secret API key. Now unecessary b/c of environmental variables.
 # File should be a single line containing key, in same directory as this program.
 # Open file, turn into string which excludes \n at the end, close the file.
 # Return is a string. Mileston app has better version of this that requires
 # only one key_file for every possible API key.
-
-def openAPI_Key(key_file):
-    f = open(key_file, 'r')
-    api_key = f.read().rstrip()
-    f.close()
-    return(api_key)
+#
+# def openAPI_Key(key_file):
+#     f = open(key_file, 'r')
+#     api_key = f.read().rstrip()
+#     f.close()
+#     return(api_key)
 
 
 ###### for obtaining the appropriate url, fetching data, and creating pandas
@@ -81,8 +86,8 @@ def make_plot(df, prices, ticker):
 app = Flask(__name__)
 
 app.vars = {}
-key_file = "API_Key"
-app.vars['api key'] = openAPI_Key(key_file)
+# key_file = "API_Key" # for old way of getting API key.
+app.vars['api key'] = quandl_key
 
 @app.route('/')
 def main():
@@ -114,8 +119,3 @@ if __name__ == '__main__':
     # port=int(os.environ.get("PORT", 5000)) # run locally
     # app.run(port=port, host='0.0.0.0', debug=True) # run locally
     app.run(port=33507) # run on Heroku
-    # app.run(host="0.0.0.0", debug=True,port=port)
-    # app.run(host='0.0.0.0')
-  # port=int(os.environ.get("PORT", 5000))
-  # app.run(port=33507)
-  # # app.run(host='0.0.0.0')
